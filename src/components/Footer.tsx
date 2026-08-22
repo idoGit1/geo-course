@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Stack } from '@mui/material';
-import ExploreIcon from '@mui/icons-material/Explore';
+import { Explore as ExploreIcon } from '@mui/icons-material';
 import { COLORS, FONT_DISPLAY } from '../theme';
 
 export default function Footer() {

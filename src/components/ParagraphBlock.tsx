@@ -1,6 +1,5 @@
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Stack, Chip, Box } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import { ExpandMore as ExpandMoreIcon, MenuBookOutlined as MenuBookOutlinedIcon } from '@mui/icons-material';
 import type { ParagraphItem } from '../types';
 import { FONT_DISPLAY } from '../theme';
 

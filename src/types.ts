@@ -1,10 +1,9 @@
-import type { SvgIconComponent } from '@mui/icons-material';
+import type { SvgIconComponent } from "@mui/icons-material";
 
 export interface VideoItem {
   id: string;
   title: string;
   description: string;
-  /** YouTube video id - swap in a real id, this is placeholder content */
   youtubeId: string;
   duration: string;
 }
@@ -18,11 +17,12 @@ export interface ParagraphItem {
 
 export interface AssignmentQuestion {
   id: string;
-  question: string;
-  answer: string;
+  text: string;
+  type: "closed" | "open";
+  options: string[] | null;
 }
 
-export type Difficulty = 'קל' | 'בינוני' | 'מאתגר';
+export type Difficulty = "easy" | "medium" | "hard" | "extreme";
 
 export interface AssignmentItem {
   id: string;

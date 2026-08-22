@@ -16,14 +16,21 @@ import {
   useMediaQuery,
   Container,
 } from "@mui/material";
-import ExploreIcon from "@mui/icons-material/Explore";
-import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
+import {
+  Explore as ExploreIcon,
+  Menu as MenuIcon,
+  Home as HomeIcon,
+} from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import { units } from "../data/units";
 import { COLORS, FONT_DISPLAY } from "../theme";
+import { useMetadata } from "../api/useMetadata";
+import { useUnitsOverview } from "../api/useUnitsOverview";
 
 export default function Navbar() {
+  const { data: metadata } = useMetadata();
+  const { data: unitsMetadata } = useUnitsOverview();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const location = useLocation();
@@ -33,7 +40,7 @@ export default function Navbar() {
 
   const navLinks = (
     <>
-      {units.map((unit) => {
+      {unitsMetadata?.map((unit) => {
         const path = `/unit/${unit.slug}`;
         const active = isActive(path);
         return (
@@ -83,17 +90,19 @@ export default function Navbar() {
             }}
           >
             <ExploreIcon sx={{ color: COLORS.brass }} />
-            <Typography
-              variant="h6"
-              sx={{
-                fontFamily: FONT_DISPLAY,
-                fontWeight: 800,
-                color: "#fff",
-                letterSpacing: 0,
-              }}
-            >
-              אטלס · קורס גאוגרפיה
-            </Typography>
+            {metadata && (
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: FONT_DISPLAY,
+                  fontWeight: 800,
+                  color: "#fff",
+                  letterSpacing: 0,
+                }}
+              >
+                {metadata.siteName}
+              </Typography>
+            )}
           </Box>
 
           {!isMobile && (
@@ -102,7 +111,7 @@ export default function Navbar() {
                 display: "flex",
                 gap: 0.5,
                 flexGrow: 1,
-                justifyContent: "center",
+                justifyContent: "flex-start",
               }}
             >
               <Button
@@ -145,7 +154,7 @@ export default function Navbar() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1, p: 2 }}>
             <ExploreIcon sx={{ color: COLORS.brass }} />
             <Typography sx={{ fontFamily: FONT_DISPLAY, fontWeight: 800 }}>
-              אטלס · קורס גאוגרפיה
+              {metadata?.siteName}
             </Typography>
           </Box>
           <Divider sx={{ borderColor: "rgba(255,255,255,0.12)" }} />

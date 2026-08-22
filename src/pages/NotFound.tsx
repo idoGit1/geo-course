@@ -1,7 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
-import ExploreOffIcon from '@mui/icons-material/ExploreOff';
-import HomeIcon from '@mui/icons-material/Home';
+import { ExploreOff as ExploreOffIcon, Home as HomeIcon } from '@mui/icons-material';
 import TopoPattern from '../components/TopoPattern';
 import { COLORS, FONT_DISPLAY } from '../theme';
 

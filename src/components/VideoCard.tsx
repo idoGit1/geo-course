@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Card, CardActionArea, Box, Typography, Chip, Dialog, IconButton, Stack } from '@mui/material';
-import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
-import CloseIcon from '@mui/icons-material/Close';
-import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
+import { PlayArrowRounded as PlayArrowRoundedIcon, Close as CloseIcon, MovieOutlined as MovieOutlinedIcon } from '@mui/icons-material';
 import type { VideoItem } from '../types';
 import TopoPattern from './TopoPattern';
 import { COLORS, FONT_DISPLAY } from '../theme';
