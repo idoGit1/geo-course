@@ -14,7 +14,7 @@ export interface FetchUnitResponse {
 }
 
 interface FetchUnitResponseVideo {
-  id: string;
+  id: number;
   title: string;
   description: string;
   youtubeId: string;
@@ -22,7 +22,7 @@ interface FetchUnitResponseVideo {
 }
 
 interface FetchUnitResponseReadingPart {
-  id: string;
+  id: number;
   title: string;
   description: string | null;
   content: string;
@@ -32,7 +32,7 @@ interface FetchUnitResponseReadingPart {
 }
 
 interface FetchUnitResponseAssignment {
-  id: string;
+  id: number;
   title: string;
   description: string;
   difficulty: Difficulty;
@@ -40,7 +40,7 @@ interface FetchUnitResponseAssignment {
 }
 
 interface FetchUnitResponseAssignmentQuestion {
-  id: string;
+  id: number;
   text: string;
   type: "closed" | "open";
   options: { text: string }[] | null;

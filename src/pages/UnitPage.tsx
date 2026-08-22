@@ -120,7 +120,7 @@ export default function UnitPage() {
                     youtubeId: video.youtubeId,
                     duration: video.duration,
                     title: video.title,
-                    id: video.id,
+                    id: video.id.toString(),
                   }}
                   accent={UNIT_ACCENTS[unit.number - 1]}
                 />
@@ -143,7 +143,7 @@ export default function UnitPage() {
                 paragraph={{
                   content: readingPart.content,
                   title: readingPart.title,
-                  id: readingPart.id,
+                  id: readingPart.id.toString(),
                   keyTerms: readingPart.tags.map((tag) => tag.value),
                 }}
                 accent={UNIT_ACCENTS[unit.number - 1]}
@@ -167,10 +167,10 @@ export default function UnitPage() {
                 assignment={{
                   description: assignment.description,
                   difficulty: assignment.difficulty,
-                  id: assignment.id,
+                  id: assignment.id.toString(),
                   title: assignment.title,
                   questions: assignment.questions.map((question) => ({
-                    id: question.id,
+                    id: question.id.toString(),
                     text: question.text,
                     type: question.type,
                     options:
