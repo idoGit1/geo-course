@@ -10,7 +10,7 @@ interface SectionHeaderProps {
 }
 
 /** Reusable header used above the video / reading / assignment sections. */
-export default function SectionHeader({ Icon, title, description, color }: SectionHeaderProps) {
+export const SectionHeader = ({ Icon, title, description, color }: SectionHeaderProps) => {
   return (
     <Stack spacing={1} sx={{ mb: 3 }}>
       <Stack direction="row" spacing={1.5} alignItems="center">
@@ -46,4 +46,5 @@ export default function SectionHeader({ Icon, title, description, color }: Secti
       />
     </Stack>
   );
-}
+};
+

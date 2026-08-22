@@ -12,7 +12,7 @@ interface CoordinateChipProps {
  * scale) set in monospace, like an annotation printed in the margin
  * of a survey map. Reused across unit cards and unit hero headers.
  */
-export default function CoordinateChip({ label, color = '#B98A3D', variant = 'outline' }: CoordinateChipProps) {
+export const CoordinateChip = ({ label, color = '#B98A3D', variant = 'outline' }: CoordinateChipProps) => {
   const isSolid = variant === 'solid';
   return (
     <Box
@@ -43,4 +43,5 @@ export default function CoordinateChip({ label, color = '#B98A3D', variant = 'ou
       </Typography>
     </Box>
   );
-}
+};
+

@@ -27,7 +27,7 @@ import { COLORS, FONT_DISPLAY } from "../theme";
 import { useMetadata } from "../api/useMetadata";
 import { useUnitsOverview } from "../api/useUnitsOverview";
 
-export default function Navbar() {
+export const Navbar = () => {
   const { data: metadata } = useMetadata();
   const { data: unitsMetadata } = useUnitsOverview();
 
@@ -203,4 +203,5 @@ export default function Navbar() {
       </Drawer>
     </AppBar>
   );
-}
+};
+

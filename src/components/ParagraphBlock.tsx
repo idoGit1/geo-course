@@ -10,7 +10,7 @@ interface ParagraphBlockProps {
 }
 
 /** Reusable expandable reading block, shared by every unit's paragraph section. */
-export default function ParagraphBlock({ paragraph, accent, defaultExpanded = false }: ParagraphBlockProps) {
+export const ParagraphBlock = ({ paragraph, accent, defaultExpanded = false }: ParagraphBlockProps) => {
   return (
     <Accordion defaultExpanded={defaultExpanded} disableGutters>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -38,4 +38,5 @@ export default function ParagraphBlock({ paragraph, accent, defaultExpanded = fa
       </AccordionDetails>
     </Accordion>
   );
-}
+};
+

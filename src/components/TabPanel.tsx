@@ -8,7 +8,7 @@ interface TabPanelProps {
 }
 
 /** Generic, reusable accessible tab panel wrapper. */
-export default function TabPanel({ children, value, index }: TabPanelProps) {
+export const TabPanel = ({ children, value, index }: TabPanelProps) => {
   const active = value === index;
   return (
     <Box
@@ -20,11 +20,12 @@ export default function TabPanel({ children, value, index }: TabPanelProps) {
       {active && <Box sx={{ pt: 4 }}>{children}</Box>}
     </Box>
   );
-}
+};
 
-export function tabA11yProps(index: number) {
+
+export const tabA11yProps = (index: number) => {
   return {
     id: `unit-tab-${index}`,
     'aria-controls': `unit-tabpanel-${index}`,
   };
-}
+};

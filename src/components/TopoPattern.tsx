@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
 interface TopoPatternProps {
   color?: string;
@@ -13,16 +13,20 @@ interface TopoPatternProps {
  * hero banners across the site so every unit reads as its own
  * "region" while sharing one visual language.
  */
-export default function TopoPattern({ color = '#FFFFFF', opacity = 0.14, flip = false }: TopoPatternProps) {
+export const TopoPattern = ({
+  color = "#FFFFFF",
+  opacity = 0.14,
+  flip = false,
+}: TopoPatternProps) => {
   return (
     <Box
       aria-hidden
       sx={{
-        position: 'absolute',
+        position: "absolute",
         inset: 0,
-        overflow: 'hidden',
-        pointerEvents: 'none',
-        transform: flip ? 'scaleX(-1)' : 'none',
+        overflow: "hidden",
+        pointerEvents: "none",
+        transform: flip ? "scaleX(-1)" : "none",
       }}
     >
       <svg
@@ -30,7 +34,7 @@ export default function TopoPattern({ color = '#FFFFFF', opacity = 0.14, flip = 
         preserveAspectRatio="xMidYMid slice"
         width="100%"
         height="100%"
-        style={{ position: 'absolute', inset: 0 }}
+        style={{ position: "absolute", inset: 0 }}
       >
         <g fill="none" stroke={color} strokeWidth="1.4" opacity={opacity}>
           <path d="M -50 260 C 120 200, 220 320, 340 240 S 560 140, 700 220 S 900 260, 950 200" />
@@ -49,4 +53,4 @@ export default function TopoPattern({ color = '#FFFFFF', opacity = 0.14, flip = 
       </svg>
     </Box>
   );
-}
+};

@@ -21,15 +21,15 @@ import { useEffect, useState } from "react";
 import { Navigate, Link as RouterLink, useParams } from "react-router-dom";
 import { useUnit } from "../api/useUnit";
 import { useUnitsOverview } from "../api/useUnitsOverview";
-import AssignmentCard from "../components/AssignmentCard";
-import HeroBanner from "../components/HeroBanner";
-import ParagraphBlock from "../components/ParagraphBlock";
-import SectionHeader from "../components/SectionHeader";
-import TabPanel, { tabA11yProps } from "../components/TabPanel";
-import VideoCard from "../components/VideoCard";
+import { AssignmentCard } from "../components/AssignmentCard";
+import { HeroBanner } from "../components/HeroBanner";
+import { ParagraphBlock } from "../components/ParagraphBlock";
+import { SectionHeader } from "../components/SectionHeader";
+import { TabPanel, tabA11yProps } from "../components/TabPanel";
+import { VideoCard } from "../components/VideoCard";
 import { FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
 
-export default function UnitPage() {
+export const UnitPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: unit, isLoading: isUnitLoading } = slug
     ? useUnit(slug)
@@ -238,4 +238,4 @@ export default function UnitPage() {
       </Container>
     </Box>
   );
-}
+};

@@ -46,7 +46,7 @@ export const FONT_DISPLAY = "'Rubik', 'Heebo', sans-serif";
 export const FONT_BODY = "'Heebo', 'Rubik', sans-serif";
 export const FONT_MONO = "'Space Mono', 'Courier New', monospace";
 
-const theme = createTheme(
+export const theme = createTheme(
   {
     direction: "rtl",
     palette: {
@@ -182,5 +182,3 @@ const theme = createTheme(
   },
   heIL,
 );
-
-export default theme;

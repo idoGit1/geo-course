@@ -2,7 +2,7 @@ import { Box, Container, Typography, Stack } from '@mui/material';
 import { Explore as ExploreIcon } from '@mui/icons-material';
 import { COLORS, FONT_DISPLAY } from '../theme';
 
-export default function Footer() {
+export const Footer = () => {
   return (
     <Box component="footer" sx={{ backgroundColor: COLORS.ink, color: 'rgba(255,255,255,0.75)', mt: 8 }}>
       <Container maxWidth="lg">
@@ -26,4 +26,5 @@ export default function Footer() {
       </Container>
     </Box>
   );
-}
+};
+

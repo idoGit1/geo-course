@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { Box, Container, Typography, Stack } from '@mui/material';
 import type { SvgIconComponent } from '@mui/icons-material';
-import TopoPattern from './TopoPattern';
-import CoordinateChip from './CoordinateChip';
+import { TopoPattern } from './TopoPattern';
+import { CoordinateChip } from './CoordinateChip';
 import { COLORS, FONT_DISPLAY } from '../theme';
 
 interface HeroBannerProps {
@@ -23,7 +23,7 @@ interface HeroBannerProps {
  * same visual language (ink background, topo contour lines, brass
  * coordinate chip), different content.
  */
-export default function HeroBanner({
+export const HeroBanner = ({
   eyebrow,
   title,
   subtitle,
@@ -33,7 +33,7 @@ export default function HeroBanner({
   chips,
   actions,
   compact = false,
-}: HeroBannerProps) {
+}: HeroBannerProps) => {
   return (
     <Box
       sx={{
@@ -111,4 +111,5 @@ export default function HeroBanner({
       </Container>
     </Box>
   );
-}
+};
+

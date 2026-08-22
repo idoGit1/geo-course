@@ -26,7 +26,7 @@ const difficultyColor: Record<Difficulty, string> = {
   extreme: COLORS.red,
 };
 
-function QuestionRow({ question }: { question: string }) {
+const QuestionRow = ({ question }: { question: string }) => {
   return (
     <Box sx={{ py: 1.5 }}>
       <Typography variant="body1" sx={{ fontWeight: 600, mb: 1 }}>
@@ -37,10 +37,10 @@ function QuestionRow({ question }: { question: string }) {
 }
 
 /** Reusable card for a single assignment, shared by every unit's assignments section. */
-export default function AssignmentCard({
+export const AssignmentCard = ({
   assignment,
   accent,
-}: AssignmentCardProps) {
+}: AssignmentCardProps) => {
   const [done, setDone] = useState(false);
 
   return (
@@ -105,4 +105,5 @@ export default function AssignmentCard({
       />
     </Card>
   );
-}
+};
+

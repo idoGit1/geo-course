@@ -16,7 +16,7 @@ import {
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { Link as RouterLink } from "react-router-dom";
 import { COLORS, FONT_DISPLAY } from "../theme";
-import CoordinateChip from "./CoordinateChip";
+import { CoordinateChip } from "./CoordinateChip";
 
 interface UnitCardProps {
   slug: string;
@@ -33,7 +33,7 @@ interface UnitCardProps {
   assignmentsCount: number;
 }
 
-export default function UnitCard({
+export const UnitCard = ({
   slug,
   title,
   subtitle,
@@ -44,7 +44,7 @@ export default function UnitCard({
   readingPartsCount,
   videosCount,
   assignmentsCount,
-}: UnitCardProps) {
+}: UnitCardProps) => {
   const unitNumber = String(number).padStart(2, "0");
   const Icon = icon || PlayCircleOutlineIcon;
   return (
@@ -187,4 +187,4 @@ export default function UnitCard({
       </RouterLink>
     </Card>
   );
-}
+};
