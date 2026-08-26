@@ -6,9 +6,8 @@ import {
   Chip,
   Divider,
   Stack,
-  Typography
+  Typography,
 } from "@mui/material";
-import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { COLORS, FONT_DISPLAY } from "../../theme";
 import type { AssignmentItem, Difficulty } from "../../types";
@@ -28,8 +27,6 @@ const difficultyColor: Record<Difficulty, string> = {
 };
 
 export const AssignmentCard = ({ assignment, accent }: AssignmentCardProps) => {
-  const [done, setDone] = useState(false);
-
   const methods = useForm<Record<string, string>>();
 
   function onSubmit(data: Record<string, string>) {
@@ -44,9 +41,7 @@ export const AssignmentCard = ({ assignment, accent }: AssignmentCardProps) => {
   };
 
   return (
-    <Card
-      sx={{ p: 3, opacity: done ? 0.75 : 1, transition: "opacity 0.15s ease" }}
-    >
+    <Card sx={{ p: 3, transition: "opacity 0.15s ease" }}>
       <Stack
         direction="row"
         justifyContent="space-between"
