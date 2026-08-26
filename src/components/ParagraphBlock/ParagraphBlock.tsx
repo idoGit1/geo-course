@@ -1,7 +1,7 @@
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Stack, Chip, Box } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon, MenuBookOutlined as MenuBookOutlinedIcon } from '@mui/icons-material';
-import type { ParagraphItem } from '../types';
-import { FONT_DISPLAY } from '../theme';
+import type { ParagraphItem } from '../../types';
+import { FONT_DISPLAY } from '../../theme';
 
 interface ParagraphBlockProps {
   paragraph: ParagraphItem;

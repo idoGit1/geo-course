@@ -15,8 +15,8 @@ import {
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { Link as RouterLink } from "react-router-dom";
-import { COLORS, FONT_DISPLAY } from "../theme";
-import { CoordinateChip } from "./CoordinateChip";
+import { COLORS, FONT_DISPLAY } from "../../theme";
+import { CoordinateChip } from "../CoordinateChip/CoordinateChip";
 
 interface UnitCardProps {
   slug: string;

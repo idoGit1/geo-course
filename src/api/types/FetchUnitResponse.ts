@@ -43,5 +43,10 @@ interface FetchUnitResponseAssignmentQuestion {
   id: number;
   text: string;
   type: "closed" | "open";
-  options: { text: string }[] | null;
+  options: FetchUnitResponseAssignmentQuestionOption[] | null;
+}
+
+interface FetchUnitResponseAssignmentQuestionOption {
+  id: string;
+  text: string;
 }

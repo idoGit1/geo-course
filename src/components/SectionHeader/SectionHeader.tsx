@@ -1,6 +1,6 @@
 import { Box, Typography, Stack } from '@mui/material';
 import type { SvgIconComponent } from '@mui/icons-material';
-import { FONT_DISPLAY } from '../theme';
+import { FONT_DISPLAY } from '../../theme';
 
 interface SectionHeaderProps {
   Icon: SvgIconComponent;

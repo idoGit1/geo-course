@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import { ExploreOff as ExploreOffIcon, Home as HomeIcon } from '@mui/icons-material';
-import { TopoPattern } from '../components/TopoPattern';
+import { TopoPattern } from '../components/TopoPattern/TopoPattern';
 import { COLORS, FONT_DISPLAY } from '../theme';
 
 export const NotFound = () => {

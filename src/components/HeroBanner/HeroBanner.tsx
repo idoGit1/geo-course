@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import { Box, Container, Typography, Stack } from '@mui/material';
 import type { SvgIconComponent } from '@mui/icons-material';
-import { TopoPattern } from './TopoPattern';
-import { CoordinateChip } from './CoordinateChip';
-import { COLORS, FONT_DISPLAY } from '../theme';
+import { TopoPattern } from '../TopoPattern/TopoPattern';
+import { CoordinateChip } from '../CoordinateChip/CoordinateChip';
+import { COLORS, FONT_DISPLAY } from '../../theme';
 
 interface HeroBannerProps {
   eyebrow?: string;

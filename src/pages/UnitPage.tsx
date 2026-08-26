@@ -21,12 +21,12 @@ import { useEffect, useState } from "react";
 import { Navigate, Link as RouterLink, useParams } from "react-router-dom";
 import { useUnit } from "../api/useUnit";
 import { useUnitsOverview } from "../api/useUnitsOverview";
-import { AssignmentCard } from "../components/AssignmentCard";
-import { HeroBanner } from "../components/HeroBanner";
-import { ParagraphBlock } from "../components/ParagraphBlock";
-import { SectionHeader } from "../components/SectionHeader";
-import { TabPanel, tabA11yProps } from "../components/TabPanel";
-import { VideoCard } from "../components/VideoCard";
+import { AssignmentCard } from "../components/AssignmentCard/AssignmentCard";
+import { HeroBanner } from "../components/HeroBanner/HeroBanner";
+import { ParagraphBlock } from "../components/ParagraphBlock/ParagraphBlock";
+import { SectionHeader } from "../components/SectionHeader/SectionHeader";
+import { TabPanel, tabA11yProps } from "../components/TabPanel/TabPanel";
+import { VideoCard } from "../components/VideoCard/VideoCard";
 import { FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
 
 export const UnitPage = () => {
@@ -164,19 +164,7 @@ export const UnitPage = () => {
             {unit.assignments.map((assignment) => (
               <AssignmentCard
                 key={assignment.id}
-                assignment={{
-                  description: assignment.description,
-                  difficulty: assignment.difficulty,
-                  id: assignment.id.toString(),
-                  title: assignment.title,
-                  questions: assignment.questions.map((question) => ({
-                    id: question.id.toString(),
-                    text: question.text,
-                    type: question.type,
-                    options:
-                      question.options?.map((option) => option.text) ?? null,
-                  })),
-                }}
+                assignment={assignment}
                 accent={UNIT_ACCENTS[unit.number - 1]}
               />
             ))}

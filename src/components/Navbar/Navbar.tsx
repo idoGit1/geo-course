@@ -22,10 +22,10 @@ import {
   Home as HomeIcon,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
-import { units } from "../data/units";
-import { COLORS, FONT_DISPLAY } from "../theme";
-import { useMetadata } from "../api/useMetadata";
-import { useUnitsOverview } from "../api/useUnitsOverview";
+import { units } from "../../data/units";
+import { COLORS, FONT_DISPLAY } from "../../theme";
+import { useMetadata } from "../../api/useMetadata";
+import { useUnitsOverview } from "../../api/useUnitsOverview";
 
 export const Navbar = () => {
   const { data: metadata } = useMetadata();

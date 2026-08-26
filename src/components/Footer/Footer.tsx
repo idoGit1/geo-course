@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Stack } from '@mui/material';
 import { Explore as ExploreIcon } from '@mui/icons-material';
-import { COLORS, FONT_DISPLAY } from '../theme';
+import { COLORS, FONT_DISPLAY } from '../../theme';
 
 export const Footer = () => {
   return (

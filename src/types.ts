@@ -16,16 +16,21 @@ export interface ParagraphItem {
 }
 
 export interface AssignmentQuestion {
-  id: string;
+  id: number;
   text: string;
   type: "closed" | "open";
-  options: string[] | null;
+  options: AssignmentQuestionOption[] | null;
+}
+
+export interface AssignmentQuestionOption {
+  id: string;
+  text: string;
 }
 
 export type Difficulty = "easy" | "medium" | "hard" | "extreme";
 
 export interface AssignmentItem {
-  id: string;
+  id: number;
   title: string;
   description: string;
   difficulty: Difficulty;

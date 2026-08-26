@@ -14,9 +14,9 @@ import {
   Close as CloseIcon,
   MovieOutlined as MovieOutlinedIcon,
 } from "@mui/icons-material";
-import type { VideoItem } from "../types";
-import { TopoPattern } from "./TopoPattern";
-import { COLORS, FONT_DISPLAY } from "../theme";
+import type { VideoItem } from "../../types";
+import { TopoPattern } from "../TopoPattern/TopoPattern";
+import { COLORS, FONT_DISPLAY } from "../../theme";
 
 interface VideoCardProps {
   video: VideoItem;

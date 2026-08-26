@@ -15,8 +15,8 @@ import {
   AssignmentOutlined as AssignmentOutlinedIcon,
   ArrowBack as ArrowBackIcon,
 } from "@mui/icons-material";
-import { HeroBanner } from "../components/HeroBanner";
-import { UnitCard } from "../components/UnitCard";
+import { HeroBanner } from "../components/HeroBanner/HeroBanner";
+import { UnitCard } from "../components/UnitCard/UnitCard";
 import { COLORS, FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
 import { useMetadata } from "../api/useMetadata";
 import { useUnitsOverview } from "../api/useUnitsOverview";
