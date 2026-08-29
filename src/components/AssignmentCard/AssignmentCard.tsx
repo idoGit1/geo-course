@@ -13,7 +13,7 @@ import { COLORS, FONT_DISPLAY } from "../../theme";
 import type { AssignmentItem, Difficulty } from "../../types";
 import { ClosedQuestionRow } from "./components/ClosedQuestionRow/ClosedQuestionRow";
 import { OpenQuestionRow } from "./components/OpenQuestionRow/OpenQuestionRow";
-
+import { sumBy } from "lodash";
 interface AssignmentCardProps {
   assignment: AssignmentItem;
   accent: string;
@@ -28,7 +28,10 @@ const difficultyColor: Record<Difficulty, string> = {
 
 export const AssignmentCard = ({ assignment, accent }: AssignmentCardProps) => {
   const methods = useForm<Record<string, string>>();
-
+  const score = assignment.isSubmitted
+    ? sumBy(assignment.questions, (question) => question.score ?? 0)
+    : undefined;
+  const possiblePoints = sumBy(assignment.questions, "possiblePoints");
   function onSubmit(data: Record<string, string>) {
     console.log(data);
   }
@@ -56,6 +59,13 @@ export const AssignmentCard = ({ assignment, accent }: AssignmentCardProps) => {
           >
             {assignment.title}
           </Typography>
+
+          <Chip
+            size="small"
+            label={
+              score ? `${score}/${possiblePoints}` : `${possiblePoints} נקודות`
+            }
+          />
         </Stack>
         <Chip
           size="small"
@@ -78,19 +88,32 @@ export const AssignmentCard = ({ assignment, accent }: AssignmentCardProps) => {
           {assignment.questions.map((q, i) =>
             q.type === "open" ? (
               <Box key={q.id}>
-                <OpenQuestionRow index={i + 1} question={q} />
+                <OpenQuestionRow
+                  disabled={assignment.isSubmitted}
+                  index={i + 1}
+                  question={q}
+                />
                 {i < assignment.questions.length - 1 && <Divider />}
               </Box>
             ) : (
               <Box key={q.id}>
-                <ClosedQuestionRow question={q} index={i + 1} />
+                <ClosedQuestionRow
+                  disabled={assignment.isSubmitted}
+                  question={q}
+                  index={i + 1}
+                />
                 {i < assignment.questions.length - 1 && <Divider />}
               </Box>
             ),
           )}
           <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
-            <Button type="submit" variant="contained" color="primary">
-              הגש
+            <Button
+              disabled={assignment.isSubmitted}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              {assignment.isSubmitted ? "המטלה הוגשה" : "הגש"}
             </Button>
           </Box>
         </form>

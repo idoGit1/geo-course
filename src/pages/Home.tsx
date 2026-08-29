@@ -18,8 +18,9 @@ import {
 import { HeroBanner } from "../components/HeroBanner/HeroBanner";
 import { UnitCard } from "../components/UnitCard/UnitCard";
 import { COLORS, FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
-import { useMetadata } from "../api/useMetadata";
-import { useUnitsOverview } from "../api/useUnitsOverview";
+import { useMetadata } from "../api/app/useMetadata";
+import { useUnitsOverview } from "../api/app/useUnitsOverview";
+import { useUnits } from "../api/app/useUnits";
 
 const features = [
   {
@@ -45,6 +46,7 @@ const features = [
 export const Home = () => {
   const { data: metadata } = useMetadata();
   const { data: unitsMetadata } = useUnitsOverview();
+  useUnits(unitsMetadata);
   return (
     metadata &&
     unitsMetadata && (

@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import qs from "qs";
-import { FetchUnitResponse } from "./types/FetchUnitResponse";
+import { useAuthUser } from "../auth/useAuthUser";
+import { FetchUnitResponse } from "./appApi.types";
 
 export const useUnit = (slug: string) => {
+  const { data: user } = useAuthUser();
+
   return useQuery({
     queryKey: ["unit", slug],
     queryFn: async () => {
@@ -47,12 +50,12 @@ export const useUnit = (slug: string) => {
       const response = await axios.get<{ data: FetchUnitResponse[] }>(
         `${import.meta.env.VITE_STRAPI_URL}/api/units?${query}`,
         {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_STRAPI_TOKEN}`,
-          },
+          withCredentials: true,
         },
       );
       return response.data.data[0];
     },
+    enabled: !!user,
+    staleTime: 5 * 60 * 1000,
   });
 };

@@ -1,5 +1,12 @@
 import { Difficulty } from "../../types";
 
+export interface FetchMetadataResponse {
+  siteName: string;
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
 export interface FetchUnitResponse {
   slug: string;
   title: string;
@@ -13,7 +20,7 @@ export interface FetchUnitResponse {
   assignments: FetchUnitResponseAssignment[];
 }
 
-interface FetchUnitResponseVideo {
+export interface FetchUnitResponseVideo {
   id: number;
   title: string;
   description: string;
@@ -21,7 +28,7 @@ interface FetchUnitResponseVideo {
   duration: string;
 }
 
-interface FetchUnitResponseReadingPart {
+export interface FetchUnitResponseReadingPart {
   id: number;
   title: string;
   description: string | null;
@@ -31,22 +38,41 @@ interface FetchUnitResponseReadingPart {
   }[];
 }
 
-interface FetchUnitResponseAssignment {
+export interface FetchUnitResponseAssignment {
   id: number;
   title: string;
   description: string;
   difficulty: Difficulty;
   questions: FetchUnitResponseAssignmentQuestion[];
+  isSubmitted: boolean;
 }
 
-interface FetchUnitResponseAssignmentQuestion {
+export interface FetchUnitResponseAssignmentQuestion {
   id: number;
   text: string;
   type: "closed" | "open";
   options: FetchUnitResponseAssignmentQuestionOption[] | null;
+  score?: number;
+  possiblePoints: number;
 }
 
-interface FetchUnitResponseAssignmentQuestionOption {
+export interface FetchUnitResponseAssignmentQuestionOption {
   id: string;
   text: string;
 }
+
+export interface FetchUnitsOverviewResponse {
+  slug: string;
+  title: string;
+  subtitle: string | null;
+  number: number;
+  iconName: string;
+  scale: string | null;
+  readingParts: ContentId[];
+  videos: ContentId[];
+  assignments: ContentId[];
+}
+
+type ContentId = {
+  id: number;
+};

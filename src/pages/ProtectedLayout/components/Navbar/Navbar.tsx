@@ -22,15 +22,18 @@ import {
   Home as HomeIcon,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
-import { units } from "../../data/units";
-import { COLORS, FONT_DISPLAY } from "../../theme";
-import { useMetadata } from "../../api/useMetadata";
-import { useUnitsOverview } from "../../api/useUnitsOverview";
+import { units } from "../../../../data/units";
+import { COLORS, FONT_DISPLAY } from "../../../../theme";
+import { useMetadata } from "../../../../api/app/useMetadata";
+import { useUnitsOverview } from "../../../../api/app/useUnitsOverview";
+import { useAuthUser } from "../../../../api/auth/useAuthUser";
+import { useLogoutUser } from "../../../../api/auth/useLogoutUser";
 
 export const Navbar = () => {
   const { data: metadata } = useMetadata();
   const { data: unitsMetadata } = useUnitsOverview();
-
+  const { data: user } = useAuthUser();
+  const logout = useLogoutUser();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const location = useLocation();
@@ -138,6 +141,18 @@ export const Navbar = () => {
               <MenuIcon />
             </IconButton>
           )}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              marginLeft: "auto",
+              gap: '0.5rem'
+            }}
+          >
+            <Typography>שלום {user?.username}</Typography>
+            <Button onClick={logout}>התנתק</Button>
+          </Box>
         </Toolbar>
       </Container>
 
@@ -204,4 +219,3 @@ export const Navbar = () => {
     </AppBar>
   );
 };
-

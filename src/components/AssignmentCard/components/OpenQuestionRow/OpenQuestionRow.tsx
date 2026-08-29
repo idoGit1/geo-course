@@ -1,25 +1,30 @@
-import { Box, TextField, Typography } from "@mui/material";
-import { useFormContext, Controller } from "react-hook-form";
+import { Box, TextField } from "@mui/material";
+import { Controller, useFormContext } from "react-hook-form";
 import { AssignmentQuestion } from "../../../../types";
+import { QuestionTitle } from "../QuestionTitle/QuestionTitle";
 
 interface OpenQuestionRowProps {
-  question: AssignmentQuestion
+  question: AssignmentQuestion;
   index: number;
+  disabled: boolean;
 }
 
-export const OpenQuestionRow = ({ question, index }: OpenQuestionRowProps) => {
+export const OpenQuestionRow = ({
+  question,
+  index,
+  disabled,
+}: OpenQuestionRowProps) => {
   const { control } = useFormContext();
   return (
     <Box sx={{ py: 1.5 }}>
-      <Typography variant="body1" sx={{ fontWeight: 600, mb: 1 }}>
-        {`${index}. ${question.text}`}
-      </Typography>
+      <QuestionTitle question={question} index={index} />
       <Controller
         name={question.id.toString()}
         control={control}
         render={({ field }) => (
           <TextField
             {...field}
+            disabled={disabled}
             variant="outlined"
             fullWidth
             multiline

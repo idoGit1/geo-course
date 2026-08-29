@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { FetchUnitsOverviewResponse } from "./types/FetchUnitsOverviewResponse";
 import qs from "qs";
+import { useAuthUser } from "../auth/useAuthUser";
+import { FetchUnitsOverviewResponse } from "./appApi.types";
 
 export const useUnitsOverview = () => {
+  const { data: user } = useAuthUser();
   const query = qs.stringify(
     {
       fields: ["slug", "title", "subtitle", "iconName", "scale", "number"],
@@ -28,12 +30,11 @@ export const useUnitsOverview = () => {
       const response = await axios.get<{ data: FetchUnitsOverviewResponse[] }>(
         `${import.meta.env.VITE_STRAPI_URL}/api/units?${query}`,
         {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_STRAPI_TOKEN}`,
-          },
+          withCredentials: true,
         },
       );
       return response.data.data;
     },
+    enabled: !!user,
   });
 };

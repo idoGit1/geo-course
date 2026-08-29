@@ -1,28 +1,28 @@
 import {
-  Box,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  Typography,
+    Box,
+    FormControlLabel,
+    Radio,
+    RadioGroup
 } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { AssignmentQuestion } from "../../../../types";
+import { QuestionTitle } from "../QuestionTitle/QuestionTitle";
 
 interface ClosedQuestionRowProps {
   question: AssignmentQuestion;
   index: number;
+  disabled: boolean;
 }
 
 export const ClosedQuestionRow = ({
   question,
   index,
+  disabled,
 }: ClosedQuestionRowProps) => {
   const { control } = useFormContext();
   return (
     <Box sx={{ py: 1.5 }}>
-      <Typography variant="body1" sx={{ fontWeight: 600, mb: 1 }}>
-        {`${index}. ${question.text}`}
-      </Typography>
+      <QuestionTitle question={question} index={index} />
       <Controller
         name={question.id.toString()}
         control={control}
@@ -30,6 +30,7 @@ export const ClosedQuestionRow = ({
           <RadioGroup {...field} value={field.value ?? ""}>
             {question.options?.map((option) => (
               <FormControlLabel
+                disabled={disabled}
                 key={option.id}
                 value={option.text}
                 control={<Radio />}

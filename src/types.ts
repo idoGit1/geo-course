@@ -20,6 +20,8 @@ export interface AssignmentQuestion {
   text: string;
   type: "closed" | "open";
   options: AssignmentQuestionOption[] | null;
+  score?: number;
+  possiblePoints: number;
 }
 
 export interface AssignmentQuestionOption {
@@ -35,6 +37,7 @@ export interface AssignmentItem {
   description: string;
   difficulty: Difficulty;
   questions: AssignmentQuestion[];
+  isSubmitted: boolean;
 }
 
 export interface Unit {

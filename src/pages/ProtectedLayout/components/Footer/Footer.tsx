@@ -1,8 +1,11 @@
 import { Box, Container, Typography, Stack } from '@mui/material';
 import { Explore as ExploreIcon } from '@mui/icons-material';
-import { COLORS, FONT_DISPLAY } from '../../theme';
+import { COLORS, FONT_DISPLAY } from '../../../../theme';
+import { useMetadata } from '../../../../api/app/useMetadata';
 
 export const Footer = () => {
+  const {data} = useMetadata();
+
   return (
     <Box component="footer" sx={{ backgroundColor: COLORS.ink, color: 'rgba(255,255,255,0.75)', mt: 8 }}>
       <Container maxWidth="lg">
@@ -16,7 +19,7 @@ export const Footer = () => {
           <Stack direction="row" spacing={1} alignItems="center">
             <ExploreIcon sx={{ color: COLORS.brass, fontSize: 20 }} />
             <Typography sx={{ fontFamily: FONT_DISPLAY, fontWeight: 700, color: '#fff' }}>
-              אטלס · קורס גאוגרפיה
+              {data?.siteName}
             </Typography>
           </Stack>
           <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)' }}>
