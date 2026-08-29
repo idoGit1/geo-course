@@ -35,12 +35,6 @@ const features = [
     text: "פסקאות תמציתיות עם מונחי מפתח מודגשים, לחזרה ולמידה עצמית.",
     color: COLORS.forest,
   },
-  {
-    Icon: AssignmentOutlinedIcon,
-    title: "מטלות לתרגול",
-    text: "שאלות עם תשובות לדוגמה חשופות בלחיצה, לבדיקה עצמית מיידית.",
-    color: COLORS.brass,
-  },
 ];
 
 export const Home = () => {

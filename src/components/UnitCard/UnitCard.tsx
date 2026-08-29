@@ -148,17 +148,6 @@ export const UnitCard = ({
                 variant="outlined"
                 sx={{ borderColor: COLORS.line }}
               />
-              <Chip
-                size="small"
-                icon={
-                  <AssignmentOutlinedIcon
-                    sx={{ fontSize: "16px !important" }}
-                  />
-                }
-                label={assignmentsCount}
-                variant="outlined"
-                sx={{ borderColor: COLORS.line }}
-              />
             </Stack>
 
             <Stack
