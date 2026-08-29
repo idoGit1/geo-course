@@ -96,7 +96,13 @@ export const UnitPage = () => {
             sx={{ fontFamily: FONT_DISPLAY, fontWeight: 600, minHeight: 56 }}
             {...tabA11yProps(1)}
           />
-          
+          <Tab
+            icon={<AssignmentOutlinedIcon />}
+            iconPosition="start"
+            label={`מטלות (${unit.assignments.length})`}
+            sx={{ fontFamily: FONT_DISPLAY, fontWeight: 600, minHeight: 56 }}
+            {...tabA11yProps(2)}
+          />
         </Tabs>
 
         <TabPanel value={tab} index={0}>
@@ -143,6 +149,24 @@ export const UnitPage = () => {
                 }}
                 accent={UNIT_ACCENTS[unit.number - 1]}
                 defaultExpanded={i === 0}
+              />
+            ))}
+          </Stack>
+        </TabPanel>
+
+        <TabPanel value={tab} index={2}>
+          <SectionHeader
+            Icon={AssignmentOutlinedIcon}
+            title="מטלות תרגול"
+            description="ענו על השאלות במחברת שלכם, ואז חשפו את התשובה לדוגמה כדי לבדוק את עצמכם."
+            color={UNIT_ACCENTS[unit.number - 1]}
+          />
+          <Stack spacing={2.5}>
+            {unit.assignments.map((assignment) => (
+              <AssignmentCard
+                key={assignment.id}
+                assignment={assignment}
+                accent={UNIT_ACCENTS[unit.number - 1]}
               />
             ))}
           </Stack>
