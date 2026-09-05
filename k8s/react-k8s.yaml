@@ -55,6 +55,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: react-service
+                name: frontend-service
                 port:
                   number: 80
