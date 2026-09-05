@@ -1,26 +1,25 @@
-import { Link as RouterLink } from "react-router-dom";
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Button,
-  Stack,
-  Paper,
-} from "@mui/material";
 import * as Icons from "@mui/icons-material";
 import {
-  PlayCircleOutline as PlayCircleOutlineIcon,
-  MenuBookOutlined as MenuBookOutlinedIcon,
-  AssignmentOutlined as AssignmentOutlinedIcon,
   ArrowBack as ArrowBackIcon,
+  MenuBookOutlined as MenuBookOutlinedIcon,
+  PlayCircleOutline as PlayCircleOutlineIcon
 } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import { useMetadata } from "../api/app/useMetadata";
+import { useUnits } from "../api/app/useUnits";
+import { useUnitsOverview } from "../api/app/useUnitsOverview";
 import { HeroBanner } from "../components/HeroBanner/HeroBanner";
 import { UnitCard } from "../components/UnitCard/UnitCard";
 import { COLORS, FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
-import { useMetadata } from "../api/app/useMetadata";
-import { useUnitsOverview } from "../api/app/useUnitsOverview";
-import { useUnits } from "../api/app/useUnits";
 
 const features = [
   {

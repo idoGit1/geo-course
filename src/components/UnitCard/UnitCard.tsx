@@ -1,8 +1,7 @@
 import {
   ArrowBack as ArrowBackIcon,
-  AssignmentOutlined as AssignmentOutlinedIcon,
   MenuBookOutlined as MenuBookOutlinedIcon,
-  PlayCircleOutline as PlayCircleOutlineIcon,
+  PlayCircleOutline as PlayCircleOutlineIcon
 } from "@mui/icons-material";
 import {
   Box,
@@ -43,7 +42,6 @@ export const UnitCard = ({
   scale,
   readingPartsCount,
   videosCount,
-  assignmentsCount,
 }: UnitCardProps) => {
   const unitNumber = String(number).padStart(2, "0");
   const Icon = icon || PlayCircleOutlineIcon;

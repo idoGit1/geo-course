@@ -2,7 +2,6 @@ import * as Icons from "@mui/icons-material";
 import {
   ArrowBack as ArrowBackIcon,
   ArrowForward as ArrowForwardIcon,
-  AssignmentOutlined as AssignmentOutlinedIcon,
   MenuBookOutlined as MenuBookOutlinedIcon,
   PlayCircleOutline as PlayCircleOutlineIcon,
 } from "@mui/icons-material";
@@ -21,14 +20,13 @@ import { useEffect, useState } from "react";
 import { Navigate, Link as RouterLink, useParams } from "react-router-dom";
 import { useUnit } from "../api/app/useUnit";
 import { useUnitsOverview } from "../api/app/useUnitsOverview";
-import { AssignmentCard } from "../components/AssignmentCard/AssignmentCard";
 import { HeroBanner } from "../components/HeroBanner/HeroBanner";
+import { PageLoader } from "../components/PageLoader/PageLoader";
 import { ParagraphBlock } from "../components/ParagraphBlock/ParagraphBlock";
 import { SectionHeader } from "../components/SectionHeader/SectionHeader";
 import { TabPanel, tabA11yProps } from "../components/TabPanel/TabPanel";
 import { VideoCard } from "../components/VideoCard/VideoCard";
 import { FONT_DISPLAY, UNIT_ACCENTS } from "../theme";
-import { PageLoader } from "../components/PageLoader/PageLoader";
 
 export const UnitPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -96,7 +94,6 @@ export const UnitPage = () => {
             sx={{ fontFamily: FONT_DISPLAY, fontWeight: 600, minHeight: 56 }}
             {...tabA11yProps(1)}
           />
-          
         </Tabs>
 
         <TabPanel value={tab} index={0}>

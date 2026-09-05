@@ -1,34 +1,33 @@
-import { useState } from "react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import * as Icons from "@mui/icons-material";
+import {
+  Explore as ExploreIcon,
+  Home as HomeIcon,
+  Menu as MenuIcon,
+} from "@mui/icons-material";
 import {
   AppBar,
-  Toolbar,
   Box,
-  Typography,
   Button,
-  IconButton,
+  Container,
+  Divider,
   Drawer,
+  IconButton,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
+  Toolbar,
+  Typography,
   useMediaQuery,
-  Container,
 } from "@mui/material";
-import {
-  Explore as ExploreIcon,
-  Menu as MenuIcon,
-  Home as HomeIcon,
-} from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
-import { units } from "../../../../data/units";
-import { COLORS, FONT_DISPLAY } from "../../../../theme";
+import { useState } from "react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { useMetadata } from "../../../../api/app/useMetadata";
 import { useUnitsOverview } from "../../../../api/app/useUnitsOverview";
 import { useAuthUser } from "../../../../api/auth/useAuthUser";
 import { useLogoutUser } from "../../../../api/auth/useLogoutUser";
-
+import { COLORS, FONT_DISPLAY, UNIT_ACCENTS } from "../../../../theme";
 export const Navbar = () => {
   const { data: metadata } = useMetadata();
   const { data: unitsMetadata } = useUnitsOverview();
@@ -147,7 +146,7 @@ export const Navbar = () => {
               flexDirection: "row",
               alignItems: "center",
               marginLeft: "auto",
-              gap: '0.5rem'
+              gap: "0.5rem",
             }}
           >
             <Typography>שלום {user?.username}</Typography>
@@ -189,9 +188,11 @@ export const Navbar = () => {
               />
             </ListItemButton>
             <Divider sx={{ borderColor: "rgba(255,255,255,0.12)", my: 1 }} />
-            {units.map((unit) => {
+            {unitsMetadata?.map((unit) => {
               const path = `/unit/${unit.slug}`;
-              const Icon = unit.icon;
+              const Icon =
+                Icons[unitsMetadata[0].iconName as keyof typeof Icons] ||
+                Icons.HelpOutline;
               return (
                 <ListItemButton
                   key={unit.slug}
@@ -200,7 +201,9 @@ export const Navbar = () => {
                   onClick={() => setOpen(false)}
                   selected={isActive(path)}
                 >
-                  <ListItemIcon sx={{ minWidth: 40, color: unit.accent }}>
+                  <ListItemIcon
+                    sx={{ minWidth: 40, color: UNIT_ACCENTS[unit.number - 1] }}
+                  >
                     <Icon />
                   </ListItemIcon>
                   <ListItemText
