@@ -17,16 +17,16 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
+      - name: Lowercase Repository Name
+        run: |
+          echo "IMAGE_NAME=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Deploy to K3s
         run: |
           kubectl apply -f k8s/ -n maya-geo
           kubectl set image deployment/geo-course \
-            geo-course=ghcr.io/idoGit1/geo-course:${{ github.sha }} \
+            geo-course=ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }} \
             -n maya-geo
-
-      - name: Restart deployment
-        run: |
-          kubectl rollout restart deployment geo-course -n maya-geo
 
       - name: Wait for rollout
         run: |
