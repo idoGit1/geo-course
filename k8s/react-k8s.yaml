@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: geo-course
-          image: ghcr.io/idoGit1/geo-course:latest
+          image: ghcr.io/idogit1/geo-course:latest
           ports:
             - containerPort: 80
 ---
