@@ -37,7 +37,7 @@ export const useUnits = (units: { slug: string }[] | undefined) => {
         );
 
         const response = await axios.get<{ data: FetchUnitResponse[] }>(
-          `${import.meta.env.VITE_STRAPI_URL}/api/units?${query}`,
+          `/api/units?${query}`,
           { withCredentials: true },
         );
         return response.data.data[0];

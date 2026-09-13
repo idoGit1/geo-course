@@ -28,7 +28,7 @@ export const useUnitsOverview = () => {
     queryKey: ["unitsOverview"],
     queryFn: async () => {
       const response = await axios.get<{ data: FetchUnitsOverviewResponse[] }>(
-        `${import.meta.env.VITE_STRAPI_URL}/api/units?${query}`,
+        `/api/units?${query}`,
         {
           withCredentials: true,
         },

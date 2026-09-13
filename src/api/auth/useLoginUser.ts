@@ -7,7 +7,7 @@ export const useLoginUser = () => {
   const login = async (email: string, password: string) => {
     try {
       await axios.post(
-        `${import.meta.env.VITE_STRAPI_URL}/api/auth/local`,
+        `/api/auth/local`,
         {
           identifier: email,
           password: password,

@@ -7,7 +7,7 @@ export const useLogoutUser = () => {
   const navigate = useNavigate();
   const logout = async () => {
     await axios.post(
-      `${import.meta.env.VITE_STRAPI_URL}/api/auth/logout`,
+      `/api/auth/logout`,
       {},
       {
         withCredentials: true,

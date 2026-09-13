@@ -17,7 +17,7 @@ export const useMetadata = () => {
     queryKey: ["metadata"],
     queryFn: async () => {
       const response = await axios.get<{ data: FetchMetadataResponse }>(
-        `${import.meta.env.VITE_STRAPI_URL}/api/home-page?${query}`,
+        `/api/home-page?${query}`,
         {
           withCredentials: true,
         },

@@ -7,12 +7,9 @@ export const useAuthUser = () => {
     queryKey: ["authUser"],
     queryFn: async () => {
       try {
-        const response = await axios.get<User>(
-          `${import.meta.env.VITE_STRAPI_URL}/api/users/me?populate=role`,
-          {
-            withCredentials: true,
-          },
-        );
+        const response = await axios.get<User>(`/api/users/me?populate=role`, {
+          withCredentials: true,
+        });
         return response.data;
       } catch (_) {
         return null;
