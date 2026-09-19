@@ -132,7 +132,7 @@ export const Home = () => {
                   scale={unit.scale}
                   readingPartsCount={unit.readingParts.length}
                   videosCount={unit.videos.length}
-                  assignmentsCount={unit.assignments.length}
+                  assignmentsCount={0}//unit.assignments.length}
                 />
               </Grid>
             ))}
