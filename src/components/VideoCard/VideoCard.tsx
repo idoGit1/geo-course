@@ -152,15 +152,7 @@ export const VideoCard = ({ video, accent }: VideoCardProps) => {
             >
               <MovieOutlinedIcon sx={{ fontSize: 40, color: accent }} />
               <Typography sx={{ fontWeight: 600 }}>
-                כאן יוצג נגן הסרטון
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ maxWidth: 420, color: "rgba(255,255,255,0.55)" }}
-              >
-                זהו תוכן לדוגמה. כדי להטמיע סרטון אמיתי, הוסיפו מזהה סרטון
-                מיוטיוב בשדה youtubeId עבור "{video.title}" בקובץ
-                src/data/units.ts.
+                שגיאה: סרטון לא זמין
               </Typography>
             </Stack>
           )}
