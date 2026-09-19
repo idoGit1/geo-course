@@ -33,15 +33,15 @@ export const useUnit = (slug: string) => {
               },
             },
             videos: true,
-            assignments: {
-              populate: {
-                questions: {
-                  populate: {
-                    options: true,
-                  },
-                },
-              },
-            },
+            // assignments: {
+            //   populate: {
+            //     questions: {
+            //       populate: {
+            //         options: true,
+            //       },
+            //     },
+            //   },
+            // },
           },
         },
         { encodeValuesOnly: true },

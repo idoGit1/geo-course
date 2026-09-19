@@ -28,7 +28,6 @@ export const LoginPage = () => {
 
     const response = await login(email, password);
     if (response) {
-      toast.success("התחברות בוצעה בהצלחה!");
       return <Navigate to="/home" replace />;
     } else {
       toast.error("שם משתמש או סיסמה לא נכונים");
@@ -66,7 +65,7 @@ export const LoginPage = () => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }
-            InputLabelProps={{shrink: true}}
+            InputLabelProps={{ shrink: true }}
           />
           <TextField
             margin="normal"
@@ -81,7 +80,7 @@ export const LoginPage = () => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setPassword(e.target.value)
             }
-            InputLabelProps={{shrink: true}}
+            InputLabelProps={{ shrink: true }}
           />
           <Button
             type="submit"

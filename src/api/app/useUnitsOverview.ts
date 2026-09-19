@@ -16,9 +16,9 @@ export const useUnitsOverview = () => {
         videos: {
           fields: ["id"],
         },
-        assignments: {
-          fields: ["id"],
-        },
+        // assignments: {
+        //   fields: ["id"],
+        // },
       },
     },
     { encodeValuesOnly: true },
