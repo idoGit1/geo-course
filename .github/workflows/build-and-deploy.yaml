@@ -9,7 +9,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-24.04-arm
-    environment: production
     permissions:
       contents: read
       packages: write
