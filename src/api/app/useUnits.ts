@@ -21,16 +21,16 @@ export const useUnits = (units: { slug: string }[] | undefined) => {
               "iconName",
               "number",
               "scale",
-              "assignments",
+              // "assignments",
             ],
             populate: {
               readingParts: { populate: { tags: true } },
               videos: true,
-              assignments: {
-                populate: {
-                  questions: { populate: { options: true } },
-                },
-              },
+              // assignments: {
+              //   populate: {
+              //     questions: { populate: { options: true } },
+              //   },
+              // },
             },
           },
           { encodeValuesOnly: true },
